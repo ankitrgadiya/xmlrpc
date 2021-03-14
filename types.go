@@ -18,3 +18,7 @@ type Param struct {
 type Value struct {
 	Data interface{}
 }
+
+func (v *Value) MarshalXML(e *xml.Encoder, _ xml.StartElement) error {
+	return encodeData(e, v.Data)
+}
