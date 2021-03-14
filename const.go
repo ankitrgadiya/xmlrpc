@@ -15,6 +15,8 @@ var (
 	dataStop      = xml.EndElement{Name: xml.Name{Local: "data"}}
 	valueStart    = xml.StartElement{Name: xml.Name{Local: "value"}}
 	valueStop     = xml.EndElement{Name: xml.Name{Local: "value"}}
+	faultStart    = xml.StartElement{Name: xml.Name{Local: "fault"}}
+	faultStop     = xml.EndElement{Name: xml.Name{Local: "fault"}}
 	nameStart     = xml.StartElement{Name: xml.Name{Local: "name"}}
 	intStart      = xml.StartElement{Name: xml.Name{Local: "i4"}}
 	booleanStart  = xml.StartElement{Name: xml.Name{Local: "boolean"}}
