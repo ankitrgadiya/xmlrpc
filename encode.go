@@ -3,7 +3,6 @@ package xmlrpc
 import (
 	"encoding/base64"
 	"encoding/xml"
-	"errors"
 	"reflect"
 	"time"
 )
@@ -65,7 +64,7 @@ func encodeCompoundType(e *xml.Encoder, v reflect.Value) error {
 	case reflect.Struct:
 		return encodeStruct(e, v)
 	default:
-		return errors.New("not supported")
+		return &xml.UnsupportedTypeError{Type: v.Type()}
 	}
 }
 
