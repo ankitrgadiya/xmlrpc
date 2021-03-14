@@ -1,8 +1,14 @@
 package xmlrpc
 
-import (
-	"encoding/xml"
-)
+import "encoding/xml"
+
+func EncodeRequest(r *Request, indent bool) ([]byte, error) {
+	if indent {
+		return xml.MarshalIndent(r, "", "\t")
+	}
+
+	return xml.Marshal(r)
+}
 
 type Request struct {
 	XMLName    xml.Name `xml:"methodCall"`
