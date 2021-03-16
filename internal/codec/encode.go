@@ -134,12 +134,3 @@ func encodeStructField(e *xml.Encoder, d reflect.StructField, v reflect.Value) (
 
 	return nil
 }
-
-func parseName(f reflect.StructField) string {
-	name := f.Tag.Get(TagName)
-	if name == "" {
-		name = f.Name
-	}
-
-	return name
-}

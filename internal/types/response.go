@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 
 	"argc.in/xmlrpc/internal/codec"
+	"argc.in/xmlrpc/internal/errors"
 )
 
 type MethodResponse struct {
@@ -20,7 +21,7 @@ func (mr *MethodResponse) Encode(indent bool) ([]byte, error) {
 	// MethodResponse must have either Fault or Params. Also, MethodResponse can
 	// only have a single Parameter under Params.
 	if (mr.Fault != nil && len(mr.Params) != 0) || (len(mr.Params) > 1) {
-		return nil, ErrInvalidResponse
+		return nil, errors.NewInvalidResponseError("both fault and param is present")
 	}
 
 	if indent {
