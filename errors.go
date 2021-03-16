@@ -1,7 +1,13 @@
 package xmlrpc
 
-import "errors"
+import (
+	"argc.in/xmlrpc/internal/codec"
+	"argc.in/xmlrpc/internal/types"
+)
 
 var (
-	ErrInvalidResponse = errors.New("invalid response")
+	ErrInvalidResponse           = types.ErrInvalidResponse
+	ErrResponseMoreThanOneParam  = types.ErrResponseMoreThanOneParam
+	ErrResponseInvalidStartToken = types.ErrResponseInvalidStartToken
+	ErrInvalidParamCount         = codec.ErrInvalidParamCount
 )
